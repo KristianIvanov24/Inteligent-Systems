@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cstdlib> // Include for std::abs
-#include <climits> // Include for INT_MAX
+#include <cstdlib>
+#include <climits>
 
 const int FOUND = -24;
 
@@ -19,8 +19,8 @@ namespace moves {
         if (currIdxOfZero / sideSize < 1)
             return false;
 
-        std::swap(tiles[currIdxOfZero], tiles[currIdxOfZero + sideSize]);
-        currIdxOfZero += sideSize;
+        std::swap(tiles[currIdxOfZero], tiles[currIdxOfZero - sideSize]);
+        currIdxOfZero -= sideSize;
         return true;
     }
 
@@ -28,8 +28,8 @@ namespace moves {
         if (currIdxOfZero / sideSize >= sideSize - 1)
             return false;
 
-        std::swap(tiles[currIdxOfZero], tiles[currIdxOfZero - sideSize]);
-        currIdxOfZero -= sideSize;
+        std::swap(tiles[currIdxOfZero], tiles[currIdxOfZero + sideSize]);
+        currIdxOfZero += sideSize;
         return true;
     }
 
